@@ -66,7 +66,7 @@ class BladeTest extends TestCase
     public function test_task_6_7()
     {
         $response = $this->get('/table');
-        $response->assertDontSee(`class="bg-red-500"`);
+        $response->assertDontSee('class="bg-red-500"');
         $this->assertStringContainsString('Ничего не найдено', $response->content());
 
         User::factory()->count(10)->create();

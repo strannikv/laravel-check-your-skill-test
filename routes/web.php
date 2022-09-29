@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 //TODO Route Задание 1: По GET урлу /hello отобразить view - /resources/views/hello.blade (без контроллера)
@@ -57,7 +58,8 @@ Route::prefix('security')->middleware('auth')->group(function(){
 });
 
 Route::get('/test', function(){
-    return view('hello');
+    User::factory()->count(10)->create();
+//    return view('hello');
 });
 
 require __DIR__ . '/default.php';

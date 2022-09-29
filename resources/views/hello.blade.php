@@ -9,7 +9,6 @@
     <body class="antialiased">
         <h1>Hello</h1>
 
-        <x-hello/>
 
     </body>
 </html>

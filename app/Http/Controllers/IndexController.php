@@ -20,6 +20,8 @@ class IndexController extends Controller
 
     public function table()
     {
+
+
         return view('table', [
             'data' => User::all(),
         ]);
