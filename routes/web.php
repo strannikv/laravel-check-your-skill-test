@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Item;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -58,8 +59,15 @@ Route::prefix('security')->middleware('auth')->group(function(){
 });
 
 Route::get('/test', function(){
-    User::factory()->count(10)->create();
-//    return view('hello');
+    $item1 = Item::factory()->create(['active' => true, 'created_at' => now()->subMinutes(5)]);
+    $item2 = Item::factory()->create(['active' => true, 'created_at' => now()->subMinutes(4)]);
+    $item3 = Item::factory()->create(['active' => false, 'created_at' => now()->subMinutes(3)]);
+    $item4 = Item::factory()->create(['active' => true, 'created_at' => now()->subMinutes(2)]);
+    $item5 = Item::factory()->create(['active' => true, 'created_at' => now()->subMinute()]);
+
+    return 'ok';
 });
+
+Route::get('/test2', [\App\Http\Controllers\EloquentController::class, 'task2']);
 
 require __DIR__ . '/default.php';
