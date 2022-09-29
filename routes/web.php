@@ -56,4 +56,8 @@ Route::prefix('security')->middleware('auth')->group(function(){
     Route::get('/admin/auth', [\App\Http\Controllers\Admin\IndexController::class, 'auth']);
 });
 
+Route::get('/test', function(){
+    return view('hello');
+});
+
 require __DIR__ . '/default.php';
